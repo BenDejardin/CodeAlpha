@@ -1,72 +1,106 @@
-### Equipe : Les PaD'IDs
+## Équipe : Les Pad'IDs
 
-  
+- [@axelelise](https://www.github.com/axelelise)
+- [@BenDejardin](https://www.github.com/bendejardin)
 
-- DEJARDIN Benjamin
+## Informations sur le projet
 
-- ELISE Axel
+- Date du projet : **_Mars 2022_**
+- Niveau : **2ème année BTS SIO SLAM**
+- Cahier des charges : [Situation Professionnelle - NodeJS](https://slam-vinci-melun.github.io/sio22/phase4/Mission3_CodeAlphaV2.pdf)
 
-### Date de projet
+### 🛠 Version
 
-mars 2022
+- **NodeJS** : 16.13.0
+- **Mongoose** : 6.2.5
+- **MongoDB** : 4.4.9
+- **MongoDB Compass** : 1.30.1
+- **Bootstrap** : 5.1
 
-  
+## Récupération du projet
 
-### Niveaux
+Cloner le projet
 
-2ème années de BTS SIO SLAM
+```bash
+  git clone https://github.com/BenDejardin/CodeAlpha.git
+```
 
-  
+Allez dans le répertoire du projet
 
-## Informations techniques
+```bash
+  cd CodeAlpha
+```
 
-  
+Installer les dépendances
 
-### Versions
+```bash
+  npm install
+```
 
-  
-- NodeJS : 16.13.0
+Démarrer le serveur
 
-- Angular CLI : 13.0.1
+```bash
+  nodemon
+```
 
-- Bulma : 0.9.3
+## ☢️ CodeAlpha
 
-- MongoDB : 4.4.9
+CodeAlpha est une mission sous forme de situation professionnelle
+qui repose sur le développement d'une application NodeJS interne.
 
-- MongoDB Compass : 1.30.1
+L’entreprise CodeAlpha s’est spécialisée dans la production
+de produits à destination des centrales nucléaires,
+des laboratoires de physique, des universités, etc...
 
-  
-
-# CodeAlpha
-
-L’entreprise CodeAlpha s’est spécialisée dans la production de produits à destination des centrales nucléaires, des laboratoires de physique, des universités, etc...
-Elle désire remplacer, pour une meilleure gestion des accès, les lecteurs de cartes magnétiques par des
-lecteurs de QR Code à l’entrée des salles avec un traitement par une application NodeJS interne.
-
-
-
-<br>
-
-Afin d’approcher au plus d'une réalité commerciale SushiFAST utilise une application Back-end avec NodeJS dans le cadre d’une API présentant la gamme de produits à la vente.
-
-#### Lien vers l'API
-
-https://github.com/BenDejardin/SushiAPI
-
-  
-
-### Objectif
-
-L'application web SushiFAST doit permettre à un serveur de prendre la commande pour un client dans un point de vente.
-
-  
-
-### Liens dépôts
-
-Cahier des charges :
-
-[Situation Professionnelle - Angular](https://slam-vinci-melun.github.io/sio22/phase2/SituationProfessionnelle-2-Angular-2021_22.pdf)
-
-  
+Ce projet qui consiste a remplacer, pour une
+meilleure gestion des accès, les lecteurs de cartes magnétiques
+par des lecteurs de QR Code à l’entrée des salles avec un
+traitement NodeJS en interne.
 
 ## Phase 1 : Analyse de la demande
+
+## 💀 Evil User
+
+| Attaques                                                                                 | Solutions                                                                                                                                           |
+| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
+| La personne malveillante récupère le QR Code de l’intervenant.                           | Lors du mail envoyé à l’intervenant, il reçoit un lien de redirection ou l’intervenant doit saisir son code avant de pouvoir récupérer son qr code. |
+| La personne malveillante réussi à modifier la date / heure du temps passé dans la pièce. | Activations d’une double authentification pour les droits de l'opérateur.                                                                           |
+| La personne malveillante se génère un QR Code et réussit à accéder à la salle.           | Activations d’une double authentification pour les droits de l'opérateur.                                                                           |
+
+## Diagramme des cas d’utilisation
+
+![UserCase](https://github.com/BenDejardin/CodeAlpha/blob/main/images/cas_utilisation.png?raw=true)
+
+## Diagramme UML des entités
+
+![diagClass](https://github.com/BenDejardin/CodeAlpha/blob/main/images/diagramme_de_classe.png?raw=true)
+
+## Modèle pour des collection
+
+```javascript
+// Modèle Collection Intervenants
+const intervenants = new mongoose.Schema({
+  _id: Number,
+  nom: String,
+  prenom: String,
+  code: String,
+  adresse_mail: String,
+  poste: String,
+  qr_code: String,
+});
+```
+
+```javascript
+// Modèle Collection Interventions
+const interventions = new mongoose.Schema({
+  _id: Number,
+  qr_code: String,
+  salle: String,
+  date_prev: Date,
+  heure_prev: String,
+  date_deb: Date,
+  heure_deb: String,
+  date_fin: Date,
+  heure_fin: String,
+});
+```
