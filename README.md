@@ -43,7 +43,9 @@ Démarrer le serveur
   nodemon
 ```
 
-## ☢️ CodeAlpha
+<br>
+
+# ☢️ CodeAlpha
 
 CodeAlpha est une mission sous forme de situation professionnelle
 qui repose sur le développement d'une application NodeJS interne.
@@ -57,7 +59,11 @@ meilleure gestion des accès, les lecteurs de cartes magnétiques
 par des lecteurs de QR Code à l’entrée des salles avec un
 traitement NodeJS en interne.
 
-## Phase 1 : Analyse de la demande
+<br>
+
+## **Phase 1 : Analyse de la demande**
+
+<br>
 
 ## 💀 Evil User
 
@@ -67,15 +73,21 @@ traitement NodeJS en interne.
 | La personne malveillante réussi à modifier la date / heure du temps passé dans la pièce. | Activations d’une double authentification pour les droits de l'opérateur.                                                                           |
 | La personne malveillante se génère un QR Code et réussit à accéder à la salle.           | Activations d’une double authentification pour les droits de l'opérateur.                                                                           |
 
-## Diagramme des cas d’utilisation
+<br>
+
+## <img src="https://cdn-icons-png.flaticon.com/512/5509/5509831.png" style="height:1em;"/> Diagramme des cas d’utilisation
 
 ![UserCase](https://github.com/BenDejardin/CodeAlpha/blob/main/images/cas_utilisation.png?raw=true)
 
-## Diagramme UML des entités
+<br>
+
+## <img src="https://cdn-icons-png.flaticon.com/512/82/82611.png" style="height:1em;"/> Diagramme UML des entités
 
 ![diagClass](https://github.com/BenDejardin/CodeAlpha/blob/main/images/diagramme_de_classe.png?raw=true)
 
-## Modèle pour des collection
+<br>
+ 
+ ## <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="height:1em;" />  Modèle pour des collection
 
 ```javascript
 // Modèle Collection Intervenants
