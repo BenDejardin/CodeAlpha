@@ -90,23 +90,22 @@ traitement NodeJS en interne.
  ## <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" style="height:1em;" />  Modèle pour des collection
 
 ```javascript
-// Modèle Collection Intervenants
-const intervenants = new mongoose.Schema({
+// Modèle Collection Intervenant
+const Intervenant = new mongoose.Schema({
   _id: Number,
   nom: String,
   prenom: String,
   code: String,
   adresse_mail: String,
   poste: String,
-  qr_code: String,
 });
 ```
 
 ```javascript
-// Modèle Collection Interventions
-const interventions = new mongoose.Schema({
+// Modèle Collection Intervention
+const Intervention = new mongoose.Schema({
   _id: Number,
-  qr_code: String,
+  code: String,
   salle: String,
   date_prev: Date,
   heure_prev: String,
