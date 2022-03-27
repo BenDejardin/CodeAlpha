@@ -1,15 +1,23 @@
 var express = require("express");
 var router = express.Router();
-const Utilisateurs = require("../models/utilisateur");
+const intervenant = require("../models/intervenant");
+const intervention = require("../models/intervention");
 // Page racine
 router.get("/", async function (req, res, next) {
-  Utilisateurs.find({}, function (err, result) {
+  intervenant.find({}, function (err, result) {
     if (err) {
       res.send(err);
     } else {
-      res.render("utilisateurs", {
-        title: "Générateur QR Code",
-        utilisateurs: result,
+      intervention.find({}, function (errr, resultat) {
+        if (errr) {
+          res.send(errr);
+        } else {
+          res.render("utilisateurs", {
+            title: "CodeAlpha",
+            interventions: resultat,
+            intervenants: result,
+          });
+        }
       });
     }
   });

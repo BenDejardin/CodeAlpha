@@ -1,3 +1,101 @@
-.logo {
-  display: none;
+.get-in-touch {
+  max-width: 800px;
+  margin: 50px auto;
+  position: relative;
+}
+.get-in-touch .title {
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-size: 3.2em;
+  line-height: 48px;
+  padding-bottom: 48px;
+  color: #000;
+  background: #000;
+  background: -moz-linear-gradient(left, #f4524d 0%, #000 100%) !important;
+  background: -webkit-linear-gradient(left, #f4524d 0%, #000 100%) !important;
+  background: linear-gradient(to right, #f4524d 0%, #000 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+}
+.contact-form .form-field {
+  position: relative;
+  margin: 32px 0;
+}
+.contact-form .input-text {
+  display: block;
+  width: 100%;
+  height: 36px;
+  border-width: 0 0 2px 0;
+  border-color: #000;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  background-color: #f8f9fa;
+}
+.contact-form .input-text:focus {
+  outline: none;
+}
+.label {
+  -webkit-transform: translateY(-24px);
+  transform: translateY(-24px);
+}
+.contact-form .label {
+  position: absolute;
+  left: 10px;
+  bottom: 11px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+  color: #000;
+  cursor: text;
+  transition: -webkit-transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, -webkit-transform 0.2s ease-in-out;
+}
+.contact-form .submit-btn {
+  display: inline-block;
+  background-color: #000;
+  background-image: linear-gradient(125deg, #a72879, #064497);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 16px;
+  padding: 8px 16px;
+  border: none;
+  width: 200px;
+  cursor: pointer;
+}
+.formulaireQR {
+  background-color: #f8f9fa;
+  width: 30em;
+  padding: 2em;
+  border-radius: 30px;
+  margin: 2% auto 0 auto;
+}
+.fondQR {
+  background-color: #e9ecef;
+}
+.title {
+  font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+  padding: 1em 0;
+  font-size: 1.7em;
+}
+.envoiQR {
+  margin-top: 20px;
+  width: 100%;
+  border-radius: 20px;
+}
+.sectionRecherche {
+  width: 23em;
+  padding: 2em 0 0 1em;
+}
+.vertical-line {
+  border-left: 2px solid #000;
+  display: inline-block;
+  height: 627px;
+  margin-left: 20px;
+}
+.selectEtat {
+  margin-top: 1.5em;
 }

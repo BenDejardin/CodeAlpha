@@ -14,23 +14,25 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg bg-primary text-uppercase">
+  <nav class="navbar navbar-expand-md bg-primary navbar-dark text-uppercase">
     <div class="container">
 
-      <h1 class="text-white">
-        <img src="images/qrcode.jfif" class="logo" alt="..." style="height: 2em ;" />
+      <h1 class="text-white "> <img src="images/logo.png" class="logo" alt="..." style="height: 2em ;" />
         <%= title %>
       </h1>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
+      <button class="navbar-toggler" data-toggle="collapse" data-target="#navbarResponsive">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse navbar-toggler" id="navbarResponsive">
         <ul class="navbar-nav ms-auto">
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/">Home</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/">Accueil</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/createqr">Create</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/createqr">Creation</a>
           </li>
           <li class="nav-item mx-0 mx-lg-1">
-            <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/utilisateurs">User</a>
+            <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/utilisateurs">Utilisateurs</a>
           </li>
         </ul>
       </div>
@@ -50,14 +52,20 @@
         alt="..." style="height: 85.8vh; " />
     </div>
     <div>
-      <p style="color: aliceblue; width: 18em; font-size: 20px; margin: 3em 0 0 1.5em;">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-        magna
-        aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis
-        aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Scanner votre QR
-        code afin de rentrer dans la centrale
+      <p style="color: aliceblue; width: 18em; font-size: 20px; margin: 1.5em 0 0 1.5em;">
+
+        Une salle radioactive n'est disponible qu'au personnel concerné. <br><br>
+        Anciennement, l'entreprise utilisait des lecteurs de cartes magnétiques à l’entrée des salles, permettant une
+        remontée des informations. <br><br>
+        Nous développeur, avons créé une application qui cette fois-ci utilise un QR code, qui sera générée par l'un
+        des
+        opérateurs pour
+        chaque responsable qui devra se rendre dans cette pièce. <br> Les intervenants recevront ce QR Code dans leurs
+        boîtes
+        mails
+        professionnels. <br><br> L'opérateur aura également un accès à la liste de toutes les informations grâce aux
+        QRCode
+        déjà créer.
       </p>
     </div>
 
