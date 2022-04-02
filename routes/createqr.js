@@ -26,12 +26,13 @@ router.post("/scan", (req, res, next) => {
   let input_heurePrev = req.body.heurePrev;
   let input_code = req.body.code;
   let contenuQR =
+    "localhost:3000/intervention/" +
     input_salle +
-    "\n" +
+    "/" +
     input_datePrev +
-    "\n" +
+    "/" +
     input_heurePrev +
-    "\n" +
+    "/" +
     input_code;
   const intervention = new interventions({
     code_intervenant: input_code,
@@ -54,7 +55,6 @@ router.post("/scan", (req, res, next) => {
   qrcode.toDataURL(contenuQR, (err, src) => {
     if (err) {
       res.send("Un problème est survenu !!!");
-      // logger.error("Error message");
     }
 
     var transport = nodemailer.createTransport({
@@ -82,15 +82,11 @@ router.post("/scan", (req, res, next) => {
 
     transport.sendMail(mailOptions, function (error, info) {
       if (error) {
-        // logger.error("mail pas bien envoyé");
         console.log(error);
       } else {
-        // logger.info("mail bien envoyé");
         console.log("Email sent: " + info.response);
       }
     });
-
-    // logger.info(input_identite);
 
     res.render("createqr", {
       title: "Générateur QR Code",

@@ -11,7 +11,7 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="stylesheet" href="../stylesheets/style.css">
     <!-- <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
     <script src="https://code.jquery.com/ui/1.13.1/jquery-ui.js"></script>
     <script>
@@ -29,7 +29,7 @@
     <nav class="navbar navbar-expand-lg bg-primary text-uppercase">
         <div class="container">
             <h1 class="text-white">
-                <img src="images/logo.png" class="logo" alt="..." style="height: 2em ;" />
+                <img src="../images/logo.png" class="logo" alt="..." style="height: 2em ;" />
                 <%= title %>
             </h1>
             <div class="collapse navbar-collapse" id="navbarResponsive">
@@ -48,21 +48,33 @@ rounded text-white" href="/utilisateurs">Utilisateurs</a></li>
     <div class="d-flex justify-content-start">
 
         <div class="sectionRecherche">
-            <div class="search">
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-primary" type="submit">Search</button>
-                </form>
-            </div>
-            <div class="filtre">
-                <form action="">
-                    <select class="form-select selectEtat">
-                        <option selected>Etat</option>
-                        <option value="enCours">En cours</option>
-                        <option value="terminer">Terminées</option>
+            <form method="post">
+                <label for="nom">Nom de l'intervenant</label>
+                <div class="search d-flex">
+                    <select class="form-select" id="nom" name="code">
+                        <option selected>
+
+                        </option>
+                        <% intervenants.forEach(function(intervenant) { %>
+                            <option value="<%= intervenant.code %>">
+                                <%= intervenant.nom %>
+                            </option>
+                            <% }) %>
                     </select>
-                </form>
-            </div>
+                    <button class="btn btn-outline-primary" type="submit">Search</button>
+
+                </div>
+                <div class="filtre">
+                    <label for="etat" class="selectEtat">Etat</label>
+                    <select class="form-select" name="etat">
+                        <option selected>
+
+                        </option>
+                        <option value="En Cours">En cours</option>
+                        <option value="Terminer">Terminées</option>
+                    </select>
+                </div>
+            </form>
         </div>
         <span class="vertical-line"></span>
         <div class="container">
@@ -84,47 +96,44 @@ rounded text-white" href="/utilisateurs">Utilisateurs</a></li>
                 </thead>
                 <tbody>
                     <% interventions.forEach(function(intervention) { %>
-                        <tr>
+                        <% if(etat=="Aucun" || intervention.etat==etat){ %>
+                            <tr>
+                                <td>
+                                    <%= intervention.intervenants[0].nom %>
+                                </td>
 
-                            <% intervenants.forEach(function(intervenant) { %>
-                                <% if (intervenant.code==intervention. code_intervenant) { %>
-                                    <td>
-                                        <%= intervenant.nom %>
-                                    </td>
-                                    <td>
-                                        <%= intervenant.poste %>
-                                    </td>
-                                    <% } %>
-                                        <% }); %>
+                                <td>
+                                    <%= intervention.intervenants[0].poste %>
+                                </td>
 
-                                            <td>
-                                                <%= intervention. salle %>
-                                            </td>
-                                            <td>
-                                                <%= intervention. date_prev %>
-                                            </td>
-                                            <td>
-                                                <%= intervention. heure_prev %>
-                                            </td>
+                                <td>
+                                    <%= intervention.salle %>
+                                </td>
+                                <td>
+                                    <%= intervention.date_prev %>
+                                </td>
+                                <td>
+                                    <%= intervention.heure_prev %>
+                                </td>
+                                <td>
+                                    <%= intervention.date_deb %>
+                                </td>
+                                <td>
+                                    <%= intervention.heure_deb %>
+                                </td>
+                                <td>
+                                    <%= intervention.date_fin %>
+                                </td>
+                                <td>
+                                    <%= intervention.heure_fin %>
+                                </td>
+                                <td>
+                                    <%= intervention.etat %>
+                                </td>
+                            </tr>
+                            <%}%>
+                                <% }); %>
 
-                                            <td>
-                                                <%= intervention. date_deb %>
-                                            </td>
-                                            <td>
-                                                <%= intervention. heure_deb %>
-                                            </td>
-                                            <td>
-                                                <%= intervention. date_fin %>
-                                            </td>
-
-                                            <td>
-                                                <%= intervention. heure_fin %>
-                                            </td>
-                                            <td>
-                                                <%= intervention. etat %>
-                                            </td>
-                        </tr>
-                        <% }); %>
                 </tbody>
             </table>
         </div>
