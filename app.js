@@ -10,6 +10,7 @@ const mongoose = require("mongoose");
 var indexRouter = require("./routes/index");
 var utilisateursRouter = require("./routes/utilisateurs");
 var createqrRouter = require("./routes/createqr");
+var apiRouter = require("./routes/api");
 
 var app = express();
 
@@ -27,6 +28,7 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use("/", indexRouter);
 app.use("/utilisateurs", utilisateursRouter);
 app.use("/createqr", createqrRouter);
+app.use("/api", apiRouter);
 
 // Configuration de mongoose
 mongoose.connect("mongodb://localhost/QRCodes", {

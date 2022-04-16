@@ -2,6 +2,7 @@ var qrcode = require("qrcode");
 var express = require("express");
 const interventions = require("../models/intervention");
 const intervenant = require("../models/intervenant");
+const salles = require("../models/salle");
 const nodemailer = require("nodemailer");
 var router = express.Router();
 
@@ -11,10 +12,17 @@ router.get("/", function (req, res, next) {
     if (err) {
       res.send(err);
     } else {
-      res.render("createqr", {
-        title: "CodeAlpha",
-        saisie: true,
-        intervenants: result,
+      salles.find({}, function (err, resultat) {
+        if (err) {
+          res.send(err);
+        } else {
+          res.render("createqr", {
+            title: "CodeAlpha",
+            intervenants: result,
+            saisie: true,
+            salles: resultat,
+          });
+        }
       });
     }
   });
@@ -26,7 +34,7 @@ router.post("/scan", (req, res, next) => {
   let input_heurePrev = req.body.heurePrev;
   let input_code = req.body.code;
   let contenuQR =
-    "localhost:3000/intervention/" +
+    "http://localhost:3000/api/" +
     input_salle +
     "/" +
     input_datePrev +
@@ -34,6 +42,7 @@ router.post("/scan", (req, res, next) => {
     input_heurePrev +
     "/" +
     input_code;
+
   const intervention = new interventions({
     code_intervenant: input_code,
     salle: input_salle,

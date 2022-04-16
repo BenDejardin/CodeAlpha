@@ -22,7 +22,7 @@
     <script>
         $(function () {
             $("#datePrev").datepicker({
-                dateFormat: 'dd/mm/yy',
+                dateFormat: 'dd-mm-yy',
                 minDate: 0
             });
         });
@@ -53,7 +53,7 @@
                         <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/createqr">Creation</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/utilisateurs">Utilisateurs</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded text-white" href="/utilisateurs">Interventions</a>
                     </li>
                 </ul>
             </div>
@@ -72,8 +72,19 @@
 
                     <div class="contact-form row">
                         <div class="form-field col-lg-12">
-                            <input id="salle" class="input-text js-input" name="salle" type="text">
-                            <label class="label" for="salle">Salle</label>
+                            <!-- <input id="salle" class="input-text js-input" name="salle" type="text">
+                            <label class="label" for="salle">Salle</label> -->
+
+                            <select class="form-select input-text js-input formNomIntervenant" id="nosallem"
+                                name="salle">
+                                <option selected></option>
+                                <% salles.forEach(function(salle) { %>
+                                    <option value="<%= salle.nom %>">
+                                        <%= salle.nom %>
+                                    </option>
+                                    <% }) %>
+                            </select>
+                            <label class="label" for="salle">Salle de l'intervention</label>
                         </div>
                     </div>
 
